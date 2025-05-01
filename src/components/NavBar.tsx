@@ -1,8 +1,10 @@
+import ThemeToggle from "@/components/ThemeToggle";
+
 const NavBar = () => {
   return (
-    <nav className="flex items-center gap-4">
-      <p className="text-5xl font-semibold">GH</p>
-      <p>NavBar</p>
+    <nav className="flex items-center justify-between gap-4 p-2">
+      <p className="text-4xl font-semibold">GH</p>
+      <ThemeToggle />
     </nav>
   );
 };

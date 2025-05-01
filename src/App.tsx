@@ -6,8 +6,8 @@ function App() {
       <div className="w-full lg:col-span-2">
         <NavBar />
       </div>
-      <div className="hidden lg:block bg-amber-400">Aside</div>
-      <div className="bg-blue-500">Main</div>
+      <div className="hidden lg:block">Aside</div>
+      <div>Main</div>
     </div>
   );
 }
