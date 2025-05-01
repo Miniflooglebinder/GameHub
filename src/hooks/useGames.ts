@@ -3,9 +3,10 @@ import { AxiosError, CanceledError } from "axios";
 import { useEffect, useState } from "react";
 
 // Game object interface
-interface Game {
+export interface Game {
   id: number;
   name: string;
+  background_image: string;
 }
 
 // The response is shaped like this
