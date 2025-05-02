@@ -8,7 +8,7 @@ function App() {
       <div className="w-full lg:col-span-2">
         <NavBar />
       </div>
-      <div className="hidden lg:block">
+      <div className="hidden lg:block px-5">
         <GenreList />
       </div>
       <div>
