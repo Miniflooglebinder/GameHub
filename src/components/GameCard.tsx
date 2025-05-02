@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Game } from "@/hooks/useGames";
 import PlatformIconList from "@/components/PlatformIconList";
+import CriticScore from "@/components/CriticScore";
 
 interface GameCardProps {
   game: Game;
@@ -16,8 +17,9 @@ const GameCard = ({ game }: GameCardProps) => {
       <CardContent>
         <CardTitle className="text-2xl">{game.name}</CardTitle>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex items-center justify-between">
         <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
+        <CriticScore score={game.metacritic} />
       </CardFooter>
     </Card>
   );
