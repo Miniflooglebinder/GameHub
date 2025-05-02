@@ -1,5 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Game } from "@/hooks/useGames";
+import PlatformIconList from "@/components/PlatformIconList";
 
 interface GameCardProps {
   game: Game;
@@ -15,6 +16,9 @@ const GameCard = ({ game }: GameCardProps) => {
       <CardContent>
         <CardTitle className="text-2xl">{game.name}</CardTitle>
       </CardContent>
+      <CardFooter>
+        <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
+      </CardFooter>
     </Card>
   );
 };
