@@ -1,11 +1,14 @@
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const GameCardSkeleton = () => {
   return (
-    <Card className="overflow-hidden pt-0">
+    <Card className="overflow-hidden w-full max-w-[600px] mx-auto pt-0">
       <CardHeader className="p-0">
-        <Skeleton className="h-[200px] rounded-none" />
+        <AspectRatio ratio={600 / 400}>
+          <Skeleton className="w-full h-full rounded-none" />
+        </AspectRatio>
       </CardHeader>
       <CardContent>
         <Skeleton className="text-2xl h-6 w-full max-w-[20ch]" />
