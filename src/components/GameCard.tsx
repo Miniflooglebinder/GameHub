@@ -11,14 +11,13 @@ interface GameCardProps {
 const GameCard = ({ game }: GameCardProps) => {
   return (
     <Card className="overflow-hidden pt-0">
-      {/* <img src={game.background_image} /> */}
       <CardHeader className="p-0">
         <img src={getCroppedImage(game.background_image)} />
       </CardHeader>
       <CardContent>
         <CardTitle className="text-2xl">{game.name}</CardTitle>
       </CardContent>
-      <CardFooter className="flex items-center justify-between">
+      <CardFooter className="flex items-center justify-between gap-2">
         <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
         <CriticScore score={game.metacritic} />
       </CardFooter>

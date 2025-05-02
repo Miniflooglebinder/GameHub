@@ -28,23 +28,29 @@ const useGames = () => {
   // States for games
   const [games, setGames] = useState<Game[]>([] as Game[]);
   const [error, setError] = useState("");
+  const [isLoading, setLoading] = useState(false);
 
   // Fetch logic
   useEffect(() => {
+    setLoading(true);
     const controller = new AbortController();
 
     apiClient
       .get<FetchGamesResponse>("/games", { signal: controller.signal })
-      .then((response) => setGames(response.data.results))
+      .then((response) => {
+        setGames(response.data.results);
+        setLoading(false);
+      })
       .catch((error: AxiosError) => {
         if (error instanceof CanceledError) return; // If request is cancelled don't show error
         setError(error.message);
+        setLoading(false);
       });
 
     return () => controller.abort(); // Cleanup function
   }, []);
 
-  return { games, error };
+  return { games, error, isLoading };
 };
 
 export default useGames;
