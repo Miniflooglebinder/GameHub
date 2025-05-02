@@ -3,7 +3,7 @@ import GameCardSkeleton from "@/components/GameCardSkeleton";
 import useGames from "@/hooks/useGames";
 
 const GameGrid = () => {
-  const { games, error, isLoading } = useGames();
+  const { data: games, error, isLoading } = useGames();
   const skeletons: number[] = Array.from({ length: 20 });
 
   return (
