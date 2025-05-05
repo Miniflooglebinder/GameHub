@@ -32,13 +32,15 @@ const PlatformIconList = ({ platforms }: PlatformIconListProps) => {
 
   return (
     <span className="flex gap-1 mt-1">
-      {platforms.map((platform) => (
-        <Icon
-          key={platform.id}
-          icon={iconMap[platform.slug]}
-          className="text-muted-foreground size-5"
-        />
-      ))}
+      {platforms.map((platform) => {
+        // Check that we have a map for this slug
+        const iconComponent = iconMap[platform.slug];
+        return (
+          iconComponent && (
+            <Icon key={platform.id} icon={iconComponent} className="text-muted-foreground size-5" />
+          )
+        );
+      })}
     </span>
   );
 };
