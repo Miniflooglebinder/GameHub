@@ -13,7 +13,10 @@ function App() {
         <NavBar />
       </div>
       <div className="hidden lg:block px-5">
-        <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
+        <GenreList
+          onSelectGenre={(genre) => setSelectedGenre(genre)}
+          selectedGenre={selectedGenre}
+        />
       </div>
       <div>
         <GameGrid selectedGenre={selectedGenre} />
