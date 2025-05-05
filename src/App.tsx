@@ -6,9 +6,14 @@ import { Platform } from "@/hooks/useGames";
 import { Genre } from "@/hooks/useGenres";
 import { useState } from "react";
 
+// Follow the "query pattern" and store query info in one spot
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
+
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
     <div className="grid grid-cols-1 grid-rows-[fit_auto] lg:grid-cols-[200px_auto]">
@@ -17,13 +22,15 @@ function App() {
       </div>
       <div className="hidden lg:block px-5">
         <GenreList
-          onSelectGenre={(genre) => setSelectedGenre(genre)}
-          selectedGenre={selectedGenre}
+          onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+          selectedGenre={gameQuery.genre}
         />
       </div>
       <div>
-        <PlatformSelector onSelectPlatform={(platform) => setSelectedPlatform(platform)} />
-        <GameGrid selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} />
+        <PlatformSelector
+          onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+        />
+        <GameGrid gameQuery={gameQuery} />
       </div>
     </div>
   );
