@@ -15,7 +15,7 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
     <>
       {error && <p>{error}</p>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 p-2">
-        {isLoading && skeletons.map((item, i) => <GameCardSkeleton key={i} />)}
+        {isLoading && skeletons.map((_, i) => <GameCardSkeleton key={i} />)}
         {games.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
