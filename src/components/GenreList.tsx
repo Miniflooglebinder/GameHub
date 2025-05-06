@@ -12,29 +12,32 @@ const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
   const { data: genres } = useGenres();
 
   return (
-    <ul>
-      {genres.map((genre) => (
-        <Button
-          key={genre.id}
-          asChild
-          onClick={() => onSelectGenre(genre)}
-          variant={"ghost"}
-          className="text-lg leading-normal text-left justify-start whitespace-normal grow-1 shrink-1 w-full py-1 px-1.5 h-auto">
-          <li
-            className={cn(
-              "flex items-center gap-2 my-2 cursor-default",
-              genre.id === selectedGenre?.id && "bg-accent dark:bg-accent/50"
-            )}>
-            <img
-              src={getCroppedImage(genre.image_background)}
-              alt={`${genre.name} genre image`}
-              className="size-[32px] rounded-md"
-            />
-            {genre.name}
-          </li>
-        </Button>
-      ))}
-    </ul>
+    <>
+      <h2 className="text-2xl font-semibold ml-1.5 mb-2">Genres</h2>
+      <ul>
+        {genres.map((genre) => (
+          <Button
+            key={genre.id}
+            asChild
+            onClick={() => onSelectGenre(genre)}
+            variant={"ghost"}
+            className="text-lg leading-normal text-left justify-start whitespace-normal grow-1 shrink-1 w-full py-1 px-1.5 h-auto">
+            <li
+              className={cn(
+                "flex items-center gap-2 my-1 cursor-default",
+                genre.id === selectedGenre?.id && "bg-accent dark:bg-accent/50"
+              )}>
+              <img
+                src={getCroppedImage(genre.image_background)}
+                alt={`${genre.name} genre image`}
+                className="size-[32px] rounded-md object-cover"
+              />
+              {genre.name}
+            </li>
+          </Button>
+        ))}
+      </ul>
+    </>
   );
 };
 

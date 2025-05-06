@@ -24,7 +24,7 @@ function App() {
       <div className="w-full lg:col-span-2">
         <NavBar onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} />
       </div>
-      <div className="hidden lg:block px-5">
+      <div className="hidden lg:block pl-2">
         <GenreList
           onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           selectedGenre={gameQuery.genre}
