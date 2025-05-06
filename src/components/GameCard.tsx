@@ -1,8 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Game } from "@/hooks/useGames";
 import PlatformIconList from "@/components/PlatformIconList";
 import CriticScore from "@/components/CriticScore";
 import getCroppedImage from "@/util/image-crop";
+import Rating from "@/components/Rating";
 
 interface GameCardProps {
   game: Game;
@@ -21,6 +22,11 @@ const GameCard = ({ game }: GameCardProps) => {
         </div>
         <CardTitle className="text-2xl">{game.name}</CardTitle>
       </CardContent>
+      <CardFooter className="mt-auto">
+        <span className="ml-auto">
+          <Rating rating={game.rating_top} count={game.ratings_count} />
+        </span>
+      </CardFooter>
     </Card>
   );
 };
