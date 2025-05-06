@@ -2,6 +2,7 @@ import GameGrid from "@/components/GameGrid";
 import GenreList from "@/components/GenreList";
 import NavBar from "@/components/NavBar";
 import PlatformSelector from "@/components/PlatformSelector";
+import SortSelector from "@/components/SortSelector";
 import { Platform } from "@/hooks/useGames";
 import { Genre } from "@/hooks/useGenres";
 import { useState } from "react";
@@ -10,6 +11,7 @@ import { useState } from "react";
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 function App() {
@@ -27,9 +29,15 @@ function App() {
         />
       </div>
       <div>
-        <PlatformSelector
-          onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
-        />
+        <div className="flex items-center gap-4 pl-2 pb-4">
+          <PlatformSelector
+            onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+          />
+          <SortSelector
+            onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })}
+            sortOrder={gameQuery.sortOrder}
+          />
+        </div>
         <GameGrid gameQuery={gameQuery} />
       </div>
     </div>
