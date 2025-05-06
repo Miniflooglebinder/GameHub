@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Game } from "@/hooks/useGames";
 import PlatformIconList from "@/components/PlatformIconList";
 import CriticScore from "@/components/CriticScore";
@@ -15,12 +15,12 @@ const GameCard = ({ game }: GameCardProps) => {
         <img src={getCroppedImage(game.background_image)} />
       </CardHeader>
       <CardContent>
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
+          <CriticScore score={game.metacritic} />
+        </div>
         <CardTitle className="text-2xl">{game.name}</CardTitle>
       </CardContent>
-      <CardFooter className="flex items-center justify-between gap-2">
-        <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
-        <CriticScore score={game.metacritic} />
-      </CardFooter>
     </Card>
   );
 };
