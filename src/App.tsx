@@ -1,4 +1,5 @@
 import GameGrid from "@/components/GameGrid";
+import GameHeading from "@/components/GameHeading";
 import GenreList from "@/components/GenreList";
 import NavBar from "@/components/NavBar";
 import PlatformSelector from "@/components/PlatformSelector";
@@ -30,14 +31,17 @@ function App() {
         />
       </div>
       <div>
-        <div className="flex items-center gap-4 pl-2 pb-4">
-          <PlatformSelector
-            onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
-          />
-          <SortSelector
-            onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })}
-            sortOrder={gameQuery.sortOrder}
-          />
+        <div className="pl-2 mb-4">
+          <GameHeading gameQuery={gameQuery} />
+          <div className="flex items-center gap-4">
+            <PlatformSelector
+              onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+            />
+            <SortSelector
+              onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })}
+              sortOrder={gameQuery.sortOrder}
+            />
+          </div>
         </div>
         <GameGrid gameQuery={gameQuery} />
       </div>
