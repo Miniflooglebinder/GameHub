@@ -1,4 +1,4 @@
-import useData from "@/hooks/useData";
+import platforms from "@/data/platforms";
 
 interface Platform {
   id: number;
@@ -6,6 +6,7 @@ interface Platform {
   slug: string;
 }
 
-const usePlatforms = () => useData<Platform>("/platforms/lists/parents");
+// Use static parent platform data from `platforms.ts`
+const usePlatforms = () => ({ data: platforms, isLoading: false, error: null });
 
 export default usePlatforms;
