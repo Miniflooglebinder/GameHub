@@ -1,4 +1,4 @@
-import { Platform } from "@/hooks/useGames";
+import { Platform } from "@/hooks/usePlatforms";
 import { IconType } from "react-icons";
 import {
   FaWindows,

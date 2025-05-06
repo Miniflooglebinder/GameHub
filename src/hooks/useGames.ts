@@ -1,11 +1,6 @@
 import { GameQuery } from "@/App";
 import useData from "@/hooks/useData";
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import { Platform } from "@/hooks/usePlatforms";
 
 // Game object interface
 export interface Game {
