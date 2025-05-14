@@ -20,7 +20,7 @@ const PlatformSelector = ({ onSelectPlatform }: PlatformSelectorProps) => {
   return (
     <Select
       onValueChange={(slug) => {
-        const platform = platforms.find((p) => p.slug === slug);
+        const platform = platforms.results.find((p) => p.slug === slug);
         if (!platform) throw new Error("you fucked up the platform thing");
         onSelectPlatform(platform);
       }}>
@@ -28,7 +28,7 @@ const PlatformSelector = ({ onSelectPlatform }: PlatformSelectorProps) => {
         <SelectValue placeholder="Platforms" />
       </SelectTrigger>
       <SelectContent>
-        {platforms.map((platform) => (
+        {platforms.results.map((platform) => (
           <SelectItem key={platform.id} value={platform.slug}>
             {platform.name}
           </SelectItem>

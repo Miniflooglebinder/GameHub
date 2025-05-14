@@ -1,4 +1,7 @@
 import platforms from "@/data/platforms";
+import { FetchResponse } from "@/hooks/useData";
+import apiClient from "@/services/api-client";
+import { useQuery } from "@tanstack/react-query";
 
 export interface Platform {
   id: number;
@@ -6,7 +9,13 @@ export interface Platform {
   slug: string;
 }
 
-// Use static parent platform data from `platforms.ts`
-const usePlatforms = () => ({ data: platforms, isLoading: false, error: null });
+const usePlatforms = () =>
+  useQuery({
+    queryKey: ["platforms"],
+    queryFn: () =>
+      apiClient.get<FetchResponse<Platform>>("/platforms/lists/parents").then((res) => res.data),
+    staleTime: 24 * 60 * 60 * 1000,
+    initialData: { count: platforms.length, results: platforms },
+  });
 
 export default usePlatforms;
