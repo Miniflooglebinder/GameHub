@@ -15,7 +15,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
     <>
       <h2 className="text-2xl font-semibold ml-1.5 mb-2">Genres</h2>
       <ul>
-        {genres.map((genre) => (
+        {genres.results.map((genre) => (
           <Button
             key={genre.id}
             asChild
