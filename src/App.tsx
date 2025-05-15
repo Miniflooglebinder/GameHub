@@ -4,14 +4,12 @@ import GenreList from "@/components/GenreList";
 import NavBar from "@/components/NavBar";
 import PlatformSelector from "@/components/PlatformSelector";
 import SortSelector from "@/components/SortSelector";
-import { Platform } from "./hooks/usePlatforms";
-import { Genre } from "@/hooks/useGenres";
 import { useState } from "react";
 
 // Follow the "query pattern" and store query info in one spot
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -26,8 +24,8 @@ function App() {
       </div>
       <div className="hidden lg:block pl-2">
         <GenreList
-          onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
-          selectedGenre={gameQuery.genre}
+          onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genreId: genre.id })}
+          selectedGenreId={gameQuery.genreId}
         />
       </div>
       <div>
@@ -35,7 +33,9 @@ function App() {
           <GameHeading gameQuery={gameQuery} />
           <div className="flex items-center gap-4">
             <PlatformSelector
-              onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+              onSelectPlatform={(platform) =>
+                setGameQuery({ ...gameQuery, platformId: platform.id })
+              }
             />
             <SortSelector
               onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })}

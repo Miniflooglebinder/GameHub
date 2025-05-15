@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils";
 import getCroppedImage from "@/util/image-crop";
 
 interface GenreListProps {
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
   onSelectGenre: (genre: Genre) => void;
 }
 
-const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
+const GenreList = ({ selectedGenreId, onSelectGenre }: GenreListProps) => {
   const { data: genres } = useGenres();
 
   return (
@@ -25,7 +25,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
             <li
               className={cn(
                 "flex items-center gap-2 my-1 cursor-default",
-                genre.id === selectedGenre?.id && "bg-accent dark:bg-accent/50"
+                genre.id === selectedGenreId && "bg-accent dark:bg-accent/50"
               )}>
               <img
                 src={getCroppedImage(genre.image_background)}
