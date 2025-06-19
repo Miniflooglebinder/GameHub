@@ -1,14 +1,13 @@
-import { GameQuery } from "@/App";
+import useGameQueryStore from "@/GameQueryStore";
 import useGenre from "@/hooks/useGenre";
 import usePlatform from "@/hooks/usePlatform";
 
-interface GameHeadingProps {
-  gameQuery: GameQuery;
-}
+const GameHeading = () => {
+  const genreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const genre = useGenre(genreId);
 
-const GameHeading = ({ gameQuery }: GameHeadingProps) => {
-  const genre = useGenre(gameQuery.genreId);
-  const platform = usePlatform(gameQuery.platformId);
+  const platformId = useGameQueryStore((s) => s.gameQuery.platformId);
+  const platform = usePlatform(platformId);
 
   const text = `${platform?.name || ""} ${genre?.name || ""} Games`;
 

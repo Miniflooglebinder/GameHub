@@ -1,16 +1,11 @@
-import { GameQuery } from "@/App";
 import GameCard from "@/components/GameCard";
 import GameCardSkeleton from "@/components/GameCardSkeleton";
 import useGames from "@/hooks/useGames";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-interface GameGridProps {
-  gameQuery: GameQuery;
-}
-
-const GameGrid = ({ gameQuery }: GameGridProps) => {
-  const { data: games, error, isLoading, fetchNextPage, hasNextPage } = useGames(gameQuery);
+const GameGrid = () => {
+  const { data: games, error, isLoading, fetchNextPage, hasNextPage } = useGames();
   const skeletons: number[] = Array.from({ length: 20 });
 
   // Calculate the total number of games fetch so far for the infinite scroll component

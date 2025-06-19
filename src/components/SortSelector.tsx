@@ -1,11 +1,10 @@
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
+import useGameQueryStore from "@/GameQueryStore";
 
-interface SortSelectorProps {
-  sortOrder: string;
-  onSelectSortOrder: (sortOrder: string) => void;
-}
+const SortSelector = () => {
+  const sortOrder = useGameQueryStore((s) => s.gameQuery.sortOrder);
+  const setSortOrder = useGameQueryStore((s) => s.setSortOrder);
 
-const SortSelector = ({ onSelectSortOrder, sortOrder }: SortSelectorProps) => {
   const sortOrders = [
     { value: "relevance", label: "Relevance" }, // The api uses "" as relevance, but the radix UI Select can't take an empty string as a value prop
     { value: "-added", label: "Date added" },
@@ -22,7 +21,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: SortSelectorProps) => {
   return (
     <Select
       defaultValue={currentSortOrder?.value}
-      onValueChange={(value) => onSelectSortOrder(value === "relevance" ? "" : value)}>
+      onValueChange={(value) => setSortOrder(value === "relevance" ? "" : value)}>
       <SelectTrigger>Order by: {currentSortOrder?.label}</SelectTrigger>
       <SelectContent>
         {sortOrders.map((order) => (
