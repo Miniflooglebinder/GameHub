@@ -25,7 +25,7 @@ const GameCard = ({ game }: GameCardProps) => {
       <CardContent>
         <div className="flex items-center justify-between gap-2 mb-2">
           <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
-          <CriticScore score={game.metacritic} />
+          <CriticScore score={game.metacritic} className="text-sm" />
         </div>
         <CardTitle className="text-2xl">{game.name}</CardTitle>
       </CardContent>

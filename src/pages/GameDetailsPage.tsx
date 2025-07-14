@@ -1,4 +1,4 @@
-import ExpandableText from "@/components/ExpandableText";
+import GameAttributes from "@/components/GameAttributes";
 import useGame from "@/hooks/useGame";
 import { useParams } from "react-router-dom";
 
@@ -11,13 +11,8 @@ const GameDetailsPage = () => {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <div>
-      {game && (
-        <>
-          <h1 className="text-4xl font-semibold">{game.name}</h1>
-          <ExpandableText maxChars={300}>{game.description_raw}</ExpandableText>
-        </>
-      )}
+    <div className="w-fit mx-auto">
+      {game && <GameAttributes game={game} />}
     </div>
   );
 };
