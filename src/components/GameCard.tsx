@@ -1,5 +1,5 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Game } from "@/hooks/useGames";
+import { Game } from "@/entities/Game";
 import PlatformIconList from "@/components/PlatformIconList";
 import CriticScore from "@/components/CriticScore";
 import getCroppedImage from "@/util/image-crop";
