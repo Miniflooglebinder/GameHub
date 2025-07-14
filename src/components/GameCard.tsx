@@ -4,14 +4,21 @@ import PlatformIconList from "@/components/PlatformIconList";
 import CriticScore from "@/components/CriticScore";
 import getCroppedImage from "@/util/image-crop";
 import Rating from "@/components/Rating";
+import { useNavigate } from "react-router-dom";
 
 interface GameCardProps {
   game: Game;
 }
 
 const GameCard = ({ game }: GameCardProps) => {
+  const navigate = useNavigate();
+
+  const handleRedirect = () => navigate(`/games/${game.slug}`);
+
   return (
-    <Card className="overflow-hidden w-full max-w-[600px] mx-auto pt-0">
+    <Card
+      className="overflow-hidden w-full max-w-[600px] mx-auto pt-0 cursor-pointer hover:scale-105 transition-transform"
+      onClick={handleRedirect}>
       <CardHeader className="p-0">
         <img src={getCroppedImage(game.background_image)} />
       </CardHeader>

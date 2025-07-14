@@ -7,7 +7,7 @@ import SortSelector from "@/components/SortSelector";
 const HomePage = () => {
   return (
     <div className="grid grid-cols-1 grid-rows-[fit_auto] lg:grid-cols-[200px_auto]">
-      <div className="hidden lg:block pl-2">
+      <div className="hidden lg:block">
         <GenreList />
       </div>
       <div>
