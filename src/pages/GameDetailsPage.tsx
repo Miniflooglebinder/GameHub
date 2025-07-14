@@ -1,3 +1,4 @@
+import ExpandableText from "@/components/ExpandableText";
 import useGame from "@/hooks/useGame";
 import { useParams } from "react-router-dom";
 
@@ -14,7 +15,7 @@ const GameDetailsPage = () => {
       {game && (
         <>
           <h1 className="text-4xl font-semibold">{game.name}</h1>
-          <p className="max-w-[60ch]">{game.description_raw}</p>
+          <ExpandableText maxChars={300}>{game.description_raw}</ExpandableText>
         </>
       )}
     </div>
