@@ -8,7 +8,7 @@ interface DefinitionItemProps {
 const DefinitionItem = ({ term, children }: DefinitionItemProps) => {
   return (
     <div className="px-2 my-1">
-      <dt className="text-muted-foreground">{term}</dt>
+      <dt className="text-muted-foreground mb-1">{term}</dt>
       <dd>{children}</dd>
     </div>
   );
