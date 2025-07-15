@@ -1,3 +1,4 @@
+import ClearFiltersButton from "@/components/ClearFiltersButton";
 import GameGrid from "@/components/GameGrid";
 import GameHeading from "@/components/GameHeading";
 import GenreList from "@/components/GenreList";
@@ -11,11 +12,12 @@ const HomePage = () => {
         <GenreList />
       </div>
       <div>
-        <div className="pl-2 mb-4">
+        <div className="mb-4">
           <GameHeading />
           <div className="flex items-center gap-4">
             <PlatformSelector />
             <SortSelector />
+            <ClearFiltersButton />
           </div>
         </div>
         <GameGrid />

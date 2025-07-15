@@ -1,18 +1,17 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
 import useGameQueryStore from "@/GameQueryStore";
 import usePlatforms from "@/hooks/usePlatforms";
 
 const PlatformSelector = () => {
+  const { platformId } = useGameQueryStore((s) => s.gameQuery);
   const setPlatformId = useGameQueryStore((s) => s.setPlatformId);
   const { data: platforms, error } = usePlatforms();
 
   if (error) return null;
+
+  const currentSortOrder = platforms.results.find((platform) => {
+    return !platformId ? null : platform.id === platformId;
+  });
 
   return (
     <Select
@@ -21,9 +20,7 @@ const PlatformSelector = () => {
         if (!platform) throw new Error("you messed up the platform thing");
         setPlatformId(platform.id);
       }}>
-      <SelectTrigger>
-        <SelectValue placeholder="Platforms" />
-      </SelectTrigger>
+      <SelectTrigger>{currentSortOrder ? currentSortOrder.name : "Platforms"}</SelectTrigger>
       <SelectContent>
         {platforms.results.map((platform) => (
           <SelectItem key={platform.id} value={platform.slug}>
