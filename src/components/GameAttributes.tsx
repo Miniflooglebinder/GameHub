@@ -12,7 +12,7 @@ interface Props {
 
 const GameAttributes = ({ game }: Props) => {
   return (
-    <>
+    <div>
       <h1 className="text-4xl font-semibold mb-4">{game.name}</h1>
       <div className="flex items-center gap-4 mb-2 w-fit">
         <span className="inline-block bg-card border rounded-sm px-2 py-1 w-fit">
@@ -47,7 +47,7 @@ const GameAttributes = ({ game }: Props) => {
           </DefinitionItem>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
