@@ -1,9 +1,9 @@
-import { Genre } from "@/entities/Genre";
-import { Platform } from "@/entities/Platform";
-import { Publisher } from "@/entities/Publisher";
+import Genre from "@/entities/Genre";
+import Platform from "@/entities/Platform";
+import Publisher from "@/entities/Publisher";
 
 // Game object interface
-export interface Game {
+export default interface Game {
   id: number;
   slug: string;
   name: string;
