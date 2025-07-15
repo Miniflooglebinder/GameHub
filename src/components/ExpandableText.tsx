@@ -19,12 +19,10 @@ const ExpandableText = ({ maxChars, className, children }: ExpandableTextProps) 
 
   return (
     <div>
-      <p className={cn("max-w-[60ch]", className)}>
-        {text}
-        <Button onClick={toggleExpanded} variant={"ghost"} size={"sm"} className="ml-2">
-          {expanded ? "Show less" : "Show More"}
-        </Button>
-      </p>
+      <p className={cn("max-w-[60ch]", className)}>{text}</p>
+      <Button onClick={toggleExpanded} variant={"link"} className="px-0 text-muted-foreground">
+        {expanded ? "Show less" : "Show More"}
+      </Button>
     </div>
   );
 };
