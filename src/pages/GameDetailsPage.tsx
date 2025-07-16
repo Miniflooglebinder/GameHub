@@ -1,6 +1,7 @@
 import CriticScore from "@/components/CriticScore";
 import DefinitionItem from "@/components/DefinitionItem";
 import ExpandableText from "@/components/ExpandableText";
+import NavBreadcrumb, { Crumb } from "@/components/NavBreadcrumb";
 import PlatformIconList from "@/components/PlatformIconList";
 import Rating from "@/components/Rating";
 import ScreenshotCarousel from "@/components/ScreenshotCarousel";
@@ -16,8 +17,15 @@ const GameDetailsPage = () => {
   if (isLoading) return <p>Loading...</p>;
   if (error || !game) throw error;
 
+  // Nav Breadcrumb links
+  const crumbs: Crumb[] = [
+    { to: "/", label: "Home" },
+    { to: `/games/${slug}`, label: slug! },
+  ];
+
   return (
     <div className="max-w-[1280px] mt-4 mx-auto">
+      <NavBreadcrumb crumbs={crumbs} />
       <h1 className="text-4xl font-bold mb-4">{game.name}</h1>
       <Separator className="my-2 max-w-[22ch]" />
       <div className="flex items-center mb-8 h-8">

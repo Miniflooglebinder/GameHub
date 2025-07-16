@@ -2,6 +2,7 @@ import ClearFiltersButton from "@/components/ClearFiltersButton";
 import GameGrid from "@/components/GameGrid";
 import GameHeading from "@/components/GameHeading";
 import GenreList from "@/components/GenreList";
+import NavBreadcrumb from "@/components/NavBreadcrumb";
 import PlatformSelector from "@/components/PlatformSelector";
 import SortSelector from "@/components/SortSelector";
 
@@ -13,6 +14,7 @@ const HomePage = () => {
       </div>
       <div>
         <div className="mb-4">
+          <NavBreadcrumb crumbs={{ to: "/", label: "Home" }} />
           <GameHeading />
           <div className="flex items-center gap-4">
             <PlatformSelector />
