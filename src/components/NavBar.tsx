@@ -1,15 +1,14 @@
 import SearchInput from "@/components/SearchInput";
 import ThemeToggle from "@/components/ThemeToggle";
+import { Link } from "react-router-dom";
 
-interface NavBarProps {
-  onSearch: (searchText: string) => void;
-}
-
-const NavBar = ({ onSearch }: NavBarProps) => {
+const NavBar = () => {
   return (
     <nav className="flex items-center gap-4 p-2">
-      <p className="text-4xl font-semibold">GH</p>
-      <SearchInput onSearch={onSearch} />
+      <Link to="/" className="text-4xl font-semibold cursor-pointer select-none">
+        GH
+      </Link>
+      <SearchInput />
       <ThemeToggle />
     </nav>
   );
