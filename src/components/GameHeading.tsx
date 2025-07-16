@@ -11,7 +11,11 @@ const GameHeading = () => {
 
   const text = `${platform?.name || ""} ${genre?.name || ""} Games`;
 
-  return <h1 className="text-5xl font-semibold capitalize mb-4">{text}</h1>;
+  return (
+    <h1 id="gameHeading" className="text-5xl font-semibold capitalize mb-4">
+      {text}
+    </h1>
+  );
 };
 
 export default GameHeading;

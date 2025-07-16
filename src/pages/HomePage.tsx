@@ -5,6 +5,7 @@ import GameHeading from "@/components/GameHeading";
 import GenreList from "@/components/GenreList";
 import NavBreadcrumb from "@/components/NavBreadcrumb";
 import PlatformSelector from "@/components/PlatformSelector";
+import ScrollToTop from "@/components/ScrollToTop";
 import SortSelector from "@/components/SortSelector";
 import { X } from "lucide-react";
 
@@ -28,6 +29,7 @@ const HomePage = () => {
         </div>
         <GameGrid />
       </div>
+      <ScrollToTop />
       <FiltersDrawer />
     </div>
   );
