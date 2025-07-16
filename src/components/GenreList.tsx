@@ -19,7 +19,7 @@ const GenreList = () => {
             asChild
             onClick={() => setGenreId(genre.id)}
             variant={"ghost"}
-            className="text-lg leading-normal text-left justify-start whitespace-normal grow-1 shrink-1 w-full py-1 px-1.5 h-auto">
+            className="text-xl lg:text-lg leading-normal text-left justify-start whitespace-normal grow-1 shrink-1 w-full py-1 px-1.5 h-auto">
             <li
               className={cn(
                 "flex items-center gap-2 my-1 cursor-default",

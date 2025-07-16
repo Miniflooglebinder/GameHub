@@ -1,10 +1,12 @@
 import ClearFiltersButton from "@/components/ClearFiltersButton";
+import FiltersDrawer from "@/components/FiltersDrawer";
 import GameGrid from "@/components/GameGrid";
 import GameHeading from "@/components/GameHeading";
 import GenreList from "@/components/GenreList";
 import NavBreadcrumb from "@/components/NavBreadcrumb";
 import PlatformSelector from "@/components/PlatformSelector";
 import SortSelector from "@/components/SortSelector";
+import { X } from "lucide-react";
 
 const HomePage = () => {
   return (
@@ -12,18 +14,21 @@ const HomePage = () => {
       <div className="hidden lg:block">
         <GenreList />
       </div>
-      <div>
-        <div className="mb-4">
+      <div className="w-full">
+        <div className="mb-4 w-full">
           <NavBreadcrumb crumbs={{ to: "/", label: "Home" }} />
           <GameHeading />
-          <div className="flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <PlatformSelector />
             <SortSelector />
-            <ClearFiltersButton />
+            <ClearFiltersButton className="size-9">
+              <X />
+            </ClearFiltersButton>
           </div>
         </div>
         <GameGrid />
       </div>
+      <FiltersDrawer />
     </div>
   );
 };

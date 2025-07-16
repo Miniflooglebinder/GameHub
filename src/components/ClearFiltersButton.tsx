@@ -1,8 +1,13 @@
 import { Button } from "@/components/ui/button";
 import useGameQueryStore from "@/GameQueryStore";
-import { X } from "lucide-react";
+import { ReactNode } from "react";
 
-const ClearFiltersButton = () => {
+interface Props {
+  className?: string;
+  children: ReactNode;
+}
+
+const ClearFiltersButton = ({ className, children }: Props) => {
   const { genreId, platformId, sortOrder } = useGameQueryStore((s) => s.gameQuery);
   const setGenreId = useGameQueryStore((s) => s.setGenreId);
   const setPlatformId = useGameQueryStore((s) => s.setPlatformId);
@@ -15,8 +20,8 @@ const ClearFiltersButton = () => {
   };
 
   return genreId || platformId || sortOrder ? (
-    <Button variant="destructive" size="icon" onClick={handleClearFilters}>
-      <X />
+    <Button variant="destructive" onClick={handleClearFilters} className={className}>
+      {children}
     </Button>
   ) : null;
 };

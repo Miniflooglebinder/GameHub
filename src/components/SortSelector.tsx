@@ -22,7 +22,9 @@ const SortSelector = () => {
     <Select
       defaultValue={currentSortOrder?.value}
       onValueChange={(value) => setSortOrder(value === "relevance" ? "" : value)}>
-      <SelectTrigger>Order by: {currentSortOrder?.label}</SelectTrigger>
+      <SelectTrigger className="w-full lg:w-auto">
+        Order by: {currentSortOrder?.label}
+      </SelectTrigger>
       <SelectContent>
         {sortOrders.map((order) => (
           <SelectItem key={order.value} value={order.value}>

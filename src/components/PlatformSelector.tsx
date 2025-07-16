@@ -20,7 +20,9 @@ const PlatformSelector = () => {
         if (!platform) throw new Error("you messed up the platform thing");
         setPlatformId(platform.id);
       }}>
-      <SelectTrigger>{currentSortOrder ? currentSortOrder.name : "Platforms"}</SelectTrigger>
+      <SelectTrigger className="w-full lg:w-auto">
+        {currentSortOrder ? currentSortOrder.name : "Platform"}
+      </SelectTrigger>
       <SelectContent>
         {platforms.results.map((platform) => (
           <SelectItem key={platform.id} value={platform.slug}>
